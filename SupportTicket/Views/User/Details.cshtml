@@ -1,0 +1,12 @@
+﻿@model SupportTicket.Models.AppUser
+@{
+    ViewBag.Title = "Details";
+}
+<br/>
+<div class="bg-light p-4 rounded text-center">
+    <h3>Hello! <em class="text-success">@Model.Email</em></h3>
+    <h4>You are being supported by <em class="text-info">@Model.Agent.Name</em></h4>
+    <a href="@Url.Action("Exit","User")" class="btn btn-dark mt-2">Exit</a>
+    <a href="@Url.Action("Index","Home")" class="btn btn-secondary mt-2">Back to Home</a>
+</div>
+

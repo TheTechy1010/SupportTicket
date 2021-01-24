@@ -1,0 +1,28 @@
+﻿@model SupportTicket.Models.AppUserViewModel
+@{
+    ViewBag.Title = "Login";
+}
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form action="@Url.Action("Login","Account")" method="post">
+            @Html.ValidationSummary("", new { @class="text-danger"})
+            <h3>Support Ticket System</h3>
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", autofocus = "autofocus", placeholder = "Your email adddress" })
+            <label for="inputPassword" class="sr-only">User Type</label>
+            @Html.DropDownListFor(x=>x.UserType,Model.UserTypeList,new { @class="form-control"})
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" name="remember"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+            <p class="mt-5 mb-3 text-muted">Login Page</p>
+        </form>
+
+
+    </div>
+    <div class="col-md-3"></div>
+</div>

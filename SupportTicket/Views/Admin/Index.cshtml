@@ -1,0 +1,39 @@
+﻿@model IEnumerable<SupportTicket.ViewModels.Assignment>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="p-2">
+    <h4>Customer-Agent Table</h4>
+</div>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td>Agent name</td>
+            <td>Customers</td>
+        </tr>
+    </thead>
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="2">No Agent/Customer data available yet</td>
+        </tr>
+    }
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.AgentName</td>
+            <td>
+                <div class="row">
+                    @foreach (var cust in item.Customers)
+                    {
+                        <div class="col-auto">
+                            <a href="/User/Details/@cust.Key">@cust.Value</a>
+                        </div>
+                    }
+                </div>
+            </td>
+
+        </tr>
+    }
+</table>
